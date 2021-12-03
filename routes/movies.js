@@ -8,11 +8,11 @@ router.get('/', async (req, res, next) => {
 
   try {
     if (movie) {
-      const result = await Movies.findOne({ title: new RegExp('.*' + movie + '.*', 'i') })
-      result ? res.send(result) : res.status(404).send('Filme não encontrado.')
-    } else {
-      const result = await Movies.find()
-      result ? res.send(result) : res.status(404).send('Filme não encontrado.')
+      const result = await Movies.find({ title: new RegExp('.*' + movie + '.*', 'i') })
+      result.length > 0 ? res.send(result) : res.status(404).send('Filme não encontrado.')
+    }
+    else {
+      res.status(400).send('Informe o termo a ser buscado')
     }
   } catch (error) {
     next(error)
