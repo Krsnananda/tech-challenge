@@ -12,11 +12,25 @@ const movieSchema = new mongoose.Schema({
       collation: { locale: 'en', strength: 2 }
     }
   },
-  year: String,
-  imdbID: String,
-  type: String,
-  poster: String
+  year: {
+    type: String,
+    required: true
+  },
+  imdbID: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  poster: {
+    type: String,
+    required: true
+  }
 }, { collection: 'movies' }
 );
+
+
 
 module.exports = { Mongoose: mongoose, MovieSchema: movieSchema }

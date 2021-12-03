@@ -1,23 +1,25 @@
 var express = require('express');
 var router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', async (req, res, next) => {
   const db = require("../db");
   const Movies = db.Mongoose.model('movies', db.MovieSchema, 'movies');
   const movie = req.query.name
 
   try {
-    console.log(movie)
-    const result = await Movies.findOne({ title: new RegExp('.*' + movie + '.*', 'i') })
-    console.log(result)
-    res.send(result);
+    if (movie) {
+      const result = await Movies.findOne({ title: new RegExp('.*' + movie + '.*', 'i') })
+      res.send(result);
+    } else {
+      const result = await Movies.find()
+      res.send(result);
+    }
   } catch (error) {
-    console.log(error)
-    throw error
+    next(error)
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/', async (req, res, next) => {
   const title = req.body.Title
   const year = req.body.Year
   const imdbID = req.body.imdbID
