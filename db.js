@@ -31,6 +31,32 @@ const movieSchema = new mongoose.Schema({
 }, { collection: 'movies' }
 );
 
+const favoriteSchema = new mongoose.Schema({
+  title: {
+    type: String,
+    required: true,
+    index: {
+      unique: true,
+      collation: { locale: 'en', strength: 2 }
+    }
+  },
+  year: {
+    type: String,
+    required: true
+  },
+  imdbID: {
+    type: String,
+    required: true
+  },
+  type: {
+    type: String,
+    required: true
+  },
+  poster: {
+    type: String,
+    required: true
+  }
+}, { collection: 'favorites' }
+);
 
-
-module.exports = { Mongoose: mongoose, MovieSchema: movieSchema }
+module.exports = { Mongoose: mongoose, MovieSchema: movieSchema, FavoriteSchema: favoriteSchema }
