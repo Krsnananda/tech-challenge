@@ -20,28 +20,15 @@ router.get('/', async (req, res, next) => {
 });
 
 router.post('/', async (req, res, next) => {
-  const payload = {
-    title: req.body.Title,
-    year: req.body.Year,
-    imdbID: req.body.imdbID,
-    type: req.body.Type,
-    poster: req.body.Poster,
-  }
-
+  const payload = req.body.movies
   const db = require("../db");
   const Movies = db.Mongoose.model('movies', db.MovieSchema, 'movies');
-  const movie = new Movies(payload)
 
   try {
-    const emptyPayload = Object.values(payload).some(x => x === null || x === '')
-    if (emptyPayload) {
-      res.status(400).send('Foram enviados dados nulos ou vazios.')
-    } else {
-      await movie.save()
-      res.send(movie)
-    }
-  } catch (err) {
-    next(err);
+    const response = await Movies.insertMany(payload, { ordered: false })
+    res.send('OK')
+  } catch (error) {
+    next(error)
   }
 })
 

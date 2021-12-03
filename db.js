@@ -5,28 +5,19 @@ mongoose.connect('mongodb+srv://admin:Qwert123@tech-challenge.id1tf.mongodb.net/
 
 const movieSchema = new mongoose.Schema({
   title: {
-    type: String,
-    required: true,
-    index: {
-      unique: true,
-      collation: { locale: 'en', strength: 2 }
-    }
+    type: String
   },
   year: {
-    type: String,
-    required: true
+    type: String
   },
   imdbID: {
-    type: String,
-    required: true
+    type: String
   },
   type: {
-    type: String,
-    required: true
+    type: String
   },
   poster: {
-    type: String,
-    required: true
+    type: String
   }
 }, { collection: 'movies' }
 );
