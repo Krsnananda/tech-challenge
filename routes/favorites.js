@@ -20,6 +20,8 @@ router.get('/', async (req, res, next) => {
 });
 
 router.delete('/:id', async (req, res, next) => {
+  const db = require("../db");
+  const Favorites = db.Mongoose.model('favorites', db.FavoriteSchema, 'favorites');
   const id = req.params.id
 
   const result = await Favorites.deleteOne({ _id: id })
