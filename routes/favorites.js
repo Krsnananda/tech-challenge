@@ -8,7 +8,7 @@ router.get('/', async (req, res, next) => {
 
   try {
     if (movie) {
-      const result = await Favorites.findOne({ title: new RegExp('.*' + movie + '.*', 'i') })
+      const result = await Favorites.findOne({ Title: new RegExp('.*' + movie + '.*', 'i') })
       result ? res.send(result) : res.status(404).send('Este filme não se encontra nos favoritos.')
     } else {
       const result = await Favorites.find()
@@ -18,6 +18,13 @@ router.get('/', async (req, res, next) => {
     next(error)
   }
 });
+
+router.delete('/:id', async (req, res, next) => {
+  const id = req.params.id
+
+  const result = await Favorites.deleteOne({ _id: id })
+  result ? res.send(result) : res.status(404).send('id inválido')
+})
 
 router.post('/', async (req, res, next) => {
   const payload = {
