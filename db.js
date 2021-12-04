@@ -4,26 +4,26 @@ mongoose.connect('mongodb+srv://admin:Qwert123@tech-challenge.id1tf.mongodb.net/
 }).catch(err => console.log(err))
 
 const movieSchema = new mongoose.Schema({
-  title: {
+  Title: {
     type: String
   },
-  year: {
+  Year: {
     type: String
   },
   imdbID: {
     type: String
   },
-  type: {
+  Type: {
     type: String
   },
-  poster: {
+  Poster: {
     type: String
   }
 }, { collection: 'movies' }
 );
 
 const favoriteSchema = new mongoose.Schema({
-  title: {
+  Title: {
     type: String,
     required: true,
     index: {
@@ -31,7 +31,7 @@ const favoriteSchema = new mongoose.Schema({
       collation: { locale: 'en', strength: 2 }
     }
   },
-  year: {
+  Year: {
     type: String,
     required: true
   },
@@ -39,11 +39,11 @@ const favoriteSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  type: {
+  Type: {
     type: String,
     required: true
   },
-  poster: {
+  Poster: {
     type: String,
     required: true
   }

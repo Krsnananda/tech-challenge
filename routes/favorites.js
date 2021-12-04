@@ -21,11 +21,11 @@ router.get('/', async (req, res, next) => {
 
 router.post('/', async (req, res, next) => {
   const payload = {
-    title: req.body.Title,
-    year: req.body.Year,
+    Title: req.body.Title,
+    Year: req.body.Year,
     imdbID: req.body.imdbID,
-    type: req.body.Type,
-    poster: req.body.Poster,
+    Type: req.body.Type,
+    Poster: req.body.Poster,
   }
 
   const db = require("../db");
