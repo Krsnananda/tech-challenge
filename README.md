@@ -1,37 +1,31 @@
 # tech-challenge
 
-### Desafio Técnico
-Nosso passatempo favorito nessa quarentena tem sido assistir filmes e seriados, por isso pensamos em desenvolver uma solução que nos ajude na hora de selecionar o que mais gostamos. Caso você aceite o nosso desafio, precisamos que você implemente um sistema onde será possível buscar por filmes e séries utilizando a API (http://www.omdbapi.com/). Com todos esses filmes a nossa disposição queremos basicamente separar nossos favoritos, para que possamos encontrá-los facilmente depois. Portanto a sua solução deve:
+Projeto de teste técnico para o processo seletivo proposto pela Fleye. Desenvolvido com Node.js + Express + Mongoose;
 
-- Permitir a busca por filmes que gostamos
-- Listar os filmes encontrados
-- Permitir que escolhamos nosso filmes favoritos
-- Permitir que removamos um filme de nossos favoritos (às vezes um filme enjoa)
-- Listar nossos filmes favoritos
+# 📜 Dependencies
 
-Esse é um exemplo de API que esperamos para a construção deste desafio:
+- Node.js >= 14.16
+- nodemon >= 2.0.15
+
+# 🚀 Starting
+
+Foi realizado o deploy da API desenvolvida no [Heroku](https://challenge-fleye.herokuapp.com) e todos os endpoints você pode encontrar neste arquivo [Insomnia JSON](https://raw.githubusercontent.com/Krsnananda/tech-challenge/main/Insomnia_2021-12-05.json), basta importá-lo no Insomnia ou Postman.
+
+Para executá-lo em sua máquina basta clonar o repositório:
 
 ```
-Chave de API: 925eba28
-Exemplo requisição: GET http://www.omdbapi.com/?apikey=925eba28&s=batman
+git clone git@github.com:Krsnananda/tech-challenge.git
+cd tech-challenge
 ```
 
-### Comportamento esperado da aplicação:
-1) Ao buscar um filme, a aplicação deve buscar a informação em um banco de dados em memória (cache);
-2) Caso encontrar, os dados devem ser retornados. Caso não, a consulta deve ser realizada no banco de dados da aplicação (relacional ou não);
-3) Caso encontrar, os dados devem ser retornados. Caso não, deve ser feita a integração com a API dos filmes, salvando os dados no banco de dados da aplicação e em memória, e retornando os dados.
+Após clonar o repositório será necessário rodar o comando `yarn` para instalar as dependências do projeto.
 
-### Observações:
-* Pode ser utilizado qualquer banco de dados;
-* Stack de preferência: Node.js;
-* Caso deseje implementar o frontend a Stack de preferência é React ou React-Native;
-* Será um diferencial se a aplicação estiver hospedada em algum provedor;
-* É importante que haja uma descrição de como realizar o teste da solução.
+Finalmente, agora basta rodar o comando `yarn start` e se tudo estiver certo, o projeto irá rodar na porta `3000` por padrão;
 
-### Entrega da sua solução
-Deixe bem claro suas premissas, suposições e como executamos seu código. Para entregar essa solução, de um “fork” neste repositório e nos mande o link do novo repositório quando finalizar a tarefa.
-O prazo para a entrega da solução é de 72h a partir de seu início.
+# Front-end
 
-Aguardamos seu retorno,
+O front-end também foi desenvolvido e se encontra neste [repositório](https://github.com/Krsnananda/movie-challenge).
 
-Boa sorte!
+---
+
+⌨️ com ❤️ por Krsnananda 😊
