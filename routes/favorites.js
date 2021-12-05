@@ -24,7 +24,7 @@ router.delete('/:id', async (req, res, next) => {
   const Favorites = db.Mongoose.model('favorites', db.FavoriteSchema, 'favorites');
   const id = req.params.id
 
-  const result = await Favorites.deleteOne({ _id: id })
+  const result = await Favorites.deleteOne({ imdbID: id })
   result ? res.send(result) : res.status(404).send('id inválido')
 })
 
